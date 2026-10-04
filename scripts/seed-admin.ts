@@ -22,7 +22,9 @@ import { env } from '../src/config/keys.js'
 import User from '../src/models/user.model.js'
 import dns from 'dns'
 
-dns.setServers(['8.8.8.8', '8.8.4.4'])
+if (process.env.DNS_SERVERS) {
+  dns.setServers(process.env.DNS_SERVERS.split(',').map(s => s.trim()))
+}
 
 const email = (process.argv[2] || process.env.SEED_ADMIN_EMAIL || '').trim().toLowerCase()
 const password = process.argv[3] || process.env.SEED_ADMIN_PASSWORD
