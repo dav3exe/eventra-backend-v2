@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
 import mongoose from 'mongoose'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import { buildPaginationMeta, getPagination } from '../lib/utils.js'
-import Notification, { NotificationType } from '../models/notification.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import { buildPaginationMeta, getPagination } from '../utils/helpers.js'
+import Notification, { NotificationType } from '../models/notification.model.js'
 
 /**
  * Powers the notification dropdown/feed — newest first, paginated the same

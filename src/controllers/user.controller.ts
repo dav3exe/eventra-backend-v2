@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import { sanitizeUser } from '../lib/utils.js'
-import Order from '../models/order.js'
-import User from '../models/user.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import { sanitizeUser } from '../utils/helpers.js'
+import Order from '../models/order.model.js'
+import User from '../models/user.model.js'
 import { CloudinaryService } from '../services/cloudinary.service.js'
 
 export const uploadAvatar = tryCatchWrapper(async (req: Request, res: Response) => {

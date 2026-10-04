@@ -1,6 +1,6 @@
 import logger from '../config/logger.js'
-import { sendEmail } from '../email/send-email.js'
-import EmailQueue from '../models/emailQueue.js'
+import { sendEmail } from '../services/email/send-email.js'
+import EmailQueue from '../models/email-queue.model.js'
 
 const BATCH_SIZE = 10
 

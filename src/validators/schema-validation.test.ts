@@ -7,7 +7,7 @@ import {
   loginSchema,
   registerSchema,
   updateProfileSchema,
-} from './schemaValidation.js'
+} from './schema-validation.js'
 
 describe('registerSchema', () => {
   it('accepts a valid registration payload', () => {

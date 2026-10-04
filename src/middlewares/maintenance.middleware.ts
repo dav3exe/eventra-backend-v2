@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
-import { sendTsRestError } from '../lib/responseHandler.js'
-import PlatformSettings from '../models/platformSettings.js'
+import { sendTsRestError } from '../utils/response-handler.js'
+import PlatformSettings from '../models/platform-settings.model.js'
 
 // Blocks everyone except an authenticated admin when maintenance mode is
 // on — checked on every request (cheap: PlatformSettings is a single-row

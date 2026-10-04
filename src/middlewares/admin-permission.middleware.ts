@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from 'express'
-import { sendTsRestError } from '../lib/responseHandler.js'
+import { sendTsRestError } from '../utils/response-handler.js'
 
 export type AdminTier = 'owner' | 'admin' | 'support'
 

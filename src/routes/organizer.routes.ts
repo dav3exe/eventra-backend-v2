@@ -12,7 +12,7 @@ import {
 } from '../controllers/organizer.controller.js'
 import { verifySession } from '../middlewares/auth.middleware.js'
 import { validateFormData } from '../middlewares/schema.middleware.js'
-import { organizerNotificationPreferencesSchema, organizerProfileSchema, resolveBankAccountSchema } from '../lib/schemaValidation.js'
+import { organizerNotificationPreferencesSchema, organizerProfileSchema, resolveBankAccountSchema } from '../validators/schema-validation.js'
 
 const router = Router()
 

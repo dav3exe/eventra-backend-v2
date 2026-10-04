@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
 import { CloudinaryService } from '../services/cloudinary.service.js'
 
 export const uploadEventCoverImage = tryCatchWrapper(async (req: Request, res: Response) => {

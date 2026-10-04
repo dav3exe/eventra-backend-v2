@@ -7,8 +7,8 @@
     "dev": "nodemon",
     "test": "vitest run",
     "test:watch": "vitest",
-    "seed:categories": "tsx scripts/seedCategories.ts",
-    "seed:admin": "tsx scripts/seedAdmin.ts"
+    "seed:categories": "tsx scripts/seed-categories.ts",
+    "seed:admin": "tsx scripts/seed-admin.ts"
   },
   "nodemonConfig": {
     "watch": [

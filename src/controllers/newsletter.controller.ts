@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import NewsletterSubscriber from '../models/newsletterSubcriber.js'
-import { EmailService } from '../services/email.service.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import NewsletterSubscriber from '../models/newsletter-subscriber.model.js'
+import { EmailService } from '../services/email/email.service.js'
 import logger from '../config/logger.js'
 
 export const subscribeToNewsletter = tryCatchWrapper(async (req: Request, res: Response) => {

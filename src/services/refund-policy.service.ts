@@ -1,4 +1,4 @@
-import type { IEvent, IRefundPolicy } from '../models/event.js'
+import type { IEvent, IRefundPolicy } from '../models/event.model.js'
 
 export interface RefundEligibility {
   allowed: boolean

@@ -9,7 +9,7 @@ import {
 } from '../controllers/upload.controller.js'
 import { requireRole, verifySession } from '../middlewares/auth.middleware.js'
 import { documentUpload, imageUpload } from '../middlewares/upload.middleware.js'
-import { customRateLimiter } from '../middlewares/rateLimit.middleware.js'
+import { customRateLimiter } from '../middlewares/rate-limit.middleware.js'
 
 const router = Router()
 

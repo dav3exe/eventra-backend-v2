@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
 import { env } from '../config/keys.js'
-import { startEmailCron } from '../jobs/emailCron.js'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
+import { startEmailCron } from '../jobs/email.job.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
 
 export const checkEmailCron = tryCatchWrapper(async (req: Request, res: Response) => {
   const cronSecret = req.headers['x-cron-secret']

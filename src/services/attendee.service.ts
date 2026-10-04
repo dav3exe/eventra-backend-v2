@@ -1,6 +1,6 @@
 import type { Request } from 'express'
-import User from '../models/user.js'
-import type { ITicket } from '../models/ticket.js'
+import User from '../models/user.model.js'
+import type { ITicket } from '../models/ticket.model.js'
 
 /**
  * The minimum identity info needed to issue a ticket or reservation —

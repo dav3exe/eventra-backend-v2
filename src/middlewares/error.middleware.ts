@@ -4,7 +4,7 @@ import multer from 'multer'
 import pinoHttpModule from 'pino-http'
 import { env } from '../config/keys.js'
 import logger from '../config/logger.js'
-import { sendTsRestError } from '../lib/responseHandler.js'
+import { sendTsRestError } from '../utils/response-handler.js'
 const pinoHttp = pinoHttpModule.default || pinoHttpModule
 
 // Determine if we're in development mode

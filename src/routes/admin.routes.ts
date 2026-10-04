@@ -61,7 +61,7 @@ import {
 } from '../controllers/admin.controller.js'
 import { createCategory, listAllCategories, updateCategory } from '../controllers/category.controller.js'
 import { requireAdmin, verifySession } from '../middlewares/auth.middleware.js'
-import { requireAdminTier } from '../middlewares/adminPermission.middleware.js'
+import { requireAdminTier } from '../middlewares/admin-permission.middleware.js'
 import { validateFormData } from '../middlewares/schema.middleware.js'
 import {
   createCategorySchema,
@@ -70,7 +70,7 @@ import {
   updateAdminRoleSchema,
   updateCategorySchema,
   updatePlatformSettingsSchema,
-} from '../lib/schemaValidation.js'
+} from '../validators/schema-validation.js'
 
 const router = Router()
 

@@ -1,21 +1,21 @@
 import crypto from 'crypto'
 import { Request, Response } from 'express'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import { buildPaginationMeta, escapeRegExp, getDateRangeForWhen, getPagination, isValidObjectId, slugify } from '../lib/utils.js'
-import Category from '../models/category.js'
-import Event from '../models/event.js'
-import Order from '../models/order.js'
-import Report from '../models/report.js'
-import Ticket from '../models/ticket.js'
-import TicketType from '../models/ticketType.js'
-import User from '../models/user.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import { buildPaginationMeta, escapeRegExp, getDateRangeForWhen, getPagination, isValidObjectId, slugify } from '../utils/helpers.js'
+import Category from '../models/category.model.js'
+import Event from '../models/event.model.js'
+import Order from '../models/order.model.js'
+import Report from '../models/report.model.js'
+import Ticket from '../models/ticket.model.js'
+import TicketType from '../models/ticket-type.model.js'
+import User from '../models/user.model.js'
 import { PaystackService } from '../services/paystack.service.js'
-import { EmailService } from '../services/email.service.js'
+import { EmailService } from '../services/email/email.service.js'
 import logger from '../config/logger.js'
 import { formatEventDateLabel, formatVenueLabel } from '../services/ticket.service.js'
 import { NotificationService } from '../services/notification.service.js'
-import PlatformSettings from '../models/platformSettings.js'
+import PlatformSettings from '../models/platform-settings.model.js'
 import mongoose from 'mongoose'
 import {
   applyRate,
@@ -25,7 +25,7 @@ import {
   getDisplayRate,
   resolveViewerCurrency,
   TICKET_TYPE_CURRENCY,
-} from '../lib/viewerCurrency.js'
+} from '../services/currency/viewer-currency.js'
 
 const EDITABLE_STATUSES = ['draft', 'rejected']
 

@@ -11,9 +11,9 @@ import {
 } from '../controllers/user.controller.js'
 import { verifySession } from '../middlewares/auth.middleware.js'
 import { validateFormData } from '../middlewares/schema.middleware.js'
-import { updateProfileSchema } from '../lib/schemaValidation.js'
+import { updateProfileSchema } from '../validators/schema-validation.js'
 import { imageUpload } from '../middlewares/upload.middleware.js'
-import { customRateLimiter } from '../middlewares/rateLimit.middleware.js'
+import { customRateLimiter } from '../middlewares/rate-limit.middleware.js'
 
 const router = Router()
 

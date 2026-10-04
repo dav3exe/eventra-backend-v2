@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express'
 import type { ZodTypeAny } from 'zod'
-import { sendTsRestError } from '../lib/responseHandler.js'
+import { sendTsRestError } from '../utils/response-handler.js'
 
 /**
  * Validates req.body against the given Zod schema.

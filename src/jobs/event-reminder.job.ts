@@ -1,7 +1,7 @@
 import logger from '../config/logger.js'
-import Event from '../models/event.js'
-import Ticket from '../models/ticket.js'
-import { EmailService } from '../services/email.service.js'
+import Event from '../models/event.model.js'
+import Ticket from '../models/ticket.model.js'
+import { EmailService } from '../services/email/email.service.js'
 import { formatEventDateLabel } from '../services/ticket.service.js'
 
 // Reminds attendees the day before an event they're attending. Runs once
