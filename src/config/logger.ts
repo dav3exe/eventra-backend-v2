@@ -1,7 +1,8 @@
 import pino, { type Logger } from 'pino'
 import { env } from './keys.js'
 
-const isDev = env.NODE_ENV === 'development'
+// pino-pretty is a devDependency and transports don't work in serverless, so never use it on Vercel
+const isDev = env.NODE_ENV === 'development' && !process.env.VERCEL
 
 const logger: Logger = pino({
   level: env.LOG_LEVEL || (isDev ? 'debug' : 'info'),
