@@ -32,9 +32,12 @@ import {
   setupGlobalErrorHandlers,
 } from './middlewares/error.middleware.js'
 
-import dns from 'dns';
+import dns from 'dns'
 
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+// Local-only fix for Atlas SRV lookup failures; leave DNS_SERVERS unset on Vercel.
+if (process.env.DNS_SERVERS) {
+  dns.setServers(process.env.DNS_SERVERS.split(',').map(s => s.trim()))
+}
 
 declare global {
   namespace Express {

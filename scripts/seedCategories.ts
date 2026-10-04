@@ -7,9 +7,11 @@ import mongoose from 'mongoose'
 import { env } from '../src/config/keys.js'
 import Category from '../src/models/category.js'
 import { slugify } from '../src/lib/utils.js'
-import dns from 'dns';
+import dns from 'dns'
 
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+if (process.env.DNS_SERVERS) {
+  dns.setServers(process.env.DNS_SERVERS.split(',').map(s => s.trim()))
+}
 
 const DEFAULT_CATEGORIES = [
   'Music',
