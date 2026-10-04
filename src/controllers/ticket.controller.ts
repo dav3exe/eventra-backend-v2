@@ -1,23 +1,23 @@
 import { Request, Response } from 'express'
 import { randomUUID } from 'crypto'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import Event from '../models/event.js'
-import Order, { calculateOrderTotals } from '../models/order.js'
-import { getCurrentCommissionRate, getCurrentPayoutDelayDays } from '../models/platformSettings.js'
-import RefundRequest from '../models/refundRequest.js'
-import Ticket from '../models/ticket.js'
-import TicketType from '../models/ticketType.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import Event from '../models/event.model.js'
+import Order, { calculateOrderTotals } from '../models/order.model.js'
+import { getCurrentCommissionRate, getCurrentPayoutDelayDays } from '../models/platform-settings.model.js'
+import RefundRequest from '../models/refund-request.model.js'
+import Ticket from '../models/ticket.model.js'
+import TicketType from '../models/ticket-type.model.js'
 import { PaystackService } from '../services/paystack.service.js'
 import { TicketService } from '../services/ticket.service.js'
 import { handleTicketOrderPayment } from './payment.controller.js'
-import { resolveAttendeeInfo, ticketBelongsToRequester } from '../lib/attendee.js'
+import { resolveAttendeeInfo, ticketBelongsToRequester } from '../services/attendee.service.js'
 import { env } from '../config/keys.js'
-import { generateQrCodeBuffer, generateQrCodeDataUrl } from '../lib/qrcode.js'
-import { checkRefundEligibility } from '../lib/refundPolicy.js'
-import { buildPaginationMeta, getPagination, generateOTP, escapeRegExp } from '../lib/utils.js'
-import GuestAccessCode from '../models/guestAccessCode.js'
-import { EmailService } from '../services/email.service.js'
+import { generateQrCodeBuffer, generateQrCodeDataUrl } from '../utils/qrcode.js'
+import { checkRefundEligibility } from '../services/refund-policy.service.js'
+import { buildPaginationMeta, getPagination, generateOTP, escapeRegExp } from '../utils/helpers.js'
+import GuestAccessCode from '../models/guest-access-code.model.js'
+import { EmailService } from '../services/email/email.service.js'
 import logger from '../config/logger.js'
 import { NotificationService } from '../services/notification.service.js'
 import {
@@ -27,7 +27,7 @@ import {
   getDisplayRate,
   resolveViewerCurrency,
   TICKET_TYPE_CURRENCY,
-} from '../lib/viewerCurrency.js'
+} from '../services/currency/viewer-currency.js'
 
 const NAIRA_TO_KOBO = 100
 

@@ -1,15 +1,15 @@
 import { randomUUID } from 'crypto'
 import { Request, Response } from 'express'
 import { env } from '../config/keys.js'
-import { getPromotionPackage, PROMOTION_PACKAGES } from '../config/promotionPackages.js'
+import { getPromotionPackage, PROMOTION_PACKAGES } from '../config/promotion-packages.js'
 import logger from '../config/logger.js'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import Event from '../models/event.js'
-import User from '../models/user.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import Event from '../models/event.model.js'
+import User from '../models/user.model.js'
 import { PaystackService } from '../services/paystack.service.js'
 import { handlePromotionPayment } from './payment.controller.js'
-import { applyRate, EVENT_LEDGER_CURRENCY, getDisplayRate, resolveViewerCurrency } from '../lib/viewerCurrency.js'
+import { applyRate, EVENT_LEDGER_CURRENCY, getDisplayRate, resolveViewerCurrency } from '../services/currency/viewer-currency.js'
 
 const NAIRA_TO_KOBO = 100
 

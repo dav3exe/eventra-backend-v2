@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import PlatformSettings from '../models/platformSettings.js'
+import { sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import PlatformSettings from '../models/platform-settings.model.js'
 
 // Same find-or-create singleton pattern as getPlatformSettingsDoc in
 // admin.controller.ts, duplicated here (rather than imported) since that

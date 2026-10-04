@@ -1,6 +1,6 @@
 import { Request } from 'express'
-import User from '../models/user.js'
-import { getExchangeRate } from './exchangeRate.js'
+import User from '../../models/user.model.js'
+import { getExchangeRate } from './exchange-rate.js'
 
 export type Currency = 'Naira' | 'Dollar' | 'Cedis' | 'Pound'
 

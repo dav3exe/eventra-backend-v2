@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import { describe, expect, it } from 'vitest'
-import { calculateOrderTotals } from './order.js'
+import { calculateOrderTotals } from './order.model.js'
 
 const ticketTypeId = new mongoose.Types.ObjectId()
 

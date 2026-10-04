@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import Event from '../models/event.js'
-import TicketType from '../models/ticketType.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import Event from '../models/event.model.js'
+import TicketType from '../models/ticket-type.model.js'
 import { isPastLiveEditCutoff, LIVE_EDITABLE_STATUSES, LIVE_EDIT_CUTOFF_DAYS } from './event.controller.js'
 import {
   applyRate,
@@ -13,7 +13,7 @@ import {
   getDisplayRate,
   resolveViewerCurrency,
   TICKET_TYPE_CURRENCY,
-} from '../lib/viewerCurrency.js'
+} from '../services/currency/viewer-currency.js'
 
 /**
  * Confirms the event exists, belongs to the caller, and is a paid event.

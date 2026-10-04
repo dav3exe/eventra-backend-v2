@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
-import Enquiry, { IEnquiry } from '../models/Enquiry.js'
-import sendEmailWithOptions from '../email/send-email.js'
+import Enquiry, { IEnquiry } from '../models/enquiry.model.js'
+import sendEmailWithOptions from '../services/email/send-email.js'
 import { NotificationService } from '../services/notification.service.js'
-import { sendTsRestSuccess, sendTsRestError } from '../lib/responseHandler.js'
+import { sendTsRestSuccess, sendTsRestError } from '../utils/response-handler.js'
 import logger, { logError } from '../config/logger.js'
-import { buildPaginationMeta, getPagination, isValidObjectId } from '../lib/utils.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
+import { buildPaginationMeta, getPagination, isValidObjectId } from '../utils/helpers.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
 import mongoose from 'mongoose'
 
 export const createEnquiry = tryCatchWrapper(async (req: Request, res: Response) => {
@@ -102,5 +102,54 @@ export const getEnquiryById = tryCatchWrapper(async (req: Request, res: Response
     success: true,
     message: 'Enquiry fetched',
     body: enquiry.toObject(),
+  })
+})
+
+/**
+ * Bulk-marks every currently-unread enquiry as read, for the admin list's
+ * "Mark all as read" action. Mirrors the single-enquiry read logic in
+ * getEnquiryById (same readBy/readAt fields) but as one bulk update rather
+ * than looping — this can run over an unbounded number of enquiries, not
+ * just the current page.
+ */
+export const markAllEnquiriesRead = tryCatchWrapper(async (req: Request, res: Response) => {
+  const update: Partial<IEnquiry> = { status: 'read', readAt: new Date() }
+  if (req.session?.userId) {
+    update.readBy = new mongoose.Types.ObjectId(req.session.userId)
+  }
+
+  const result = await Enquiry.updateMany({ status: 'unread' }, update)
+
+  return sendTsRestSuccess(res, 200, {
+    success: true,
+    message: `${result.modifiedCount} enquir${result.modifiedCount === 1 ? 'y' : 'ies'} marked as read.`,
+    body: { modifiedCount: result.modifiedCount },
+  })
+})
+
+/**
+ * Bulk-deletes enquiries by id, for the admin list's checkbox-select +
+ * delete action. Every id is validated before anything is deleted — a
+ * request with even one malformed id is rejected outright rather than
+ * silently deleting only the valid ones, so the admin isn't left guessing
+ * which of their selected rows actually went through.
+ */
+export const deleteEnquiries = tryCatchWrapper(async (req: Request, res: Response) => {
+  const { ids } = req.body as { ids?: unknown }
+
+  if (!Array.isArray(ids) || ids.length === 0) {
+    return sendTsRestError(res, 400, 'Provide a non-empty array of enquiry ids to delete.')
+  }
+
+  if (!ids.every(isValidObjectId)) {
+    return sendTsRestError(res, 400, 'One or more enquiry ids are invalid.')
+  }
+
+  const result = await Enquiry.deleteMany({ _id: { $in: ids } })
+
+  return sendTsRestSuccess(res, 200, {
+    success: true,
+    message: `${result.deletedCount} enquir${result.deletedCount === 1 ? 'y' : 'ies'} deleted.`,
+    body: { deletedCount: result.deletedCount },
   })
 })

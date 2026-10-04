@@ -1,8 +1,8 @@
 import { Router } from 'express'
-import { createTicketType, deleteTicketType, listTicketTypesForOrganizer, updateTicketType } from '../controllers/ticketType.controller.js'
+import { createTicketType, deleteTicketType, listTicketTypesForOrganizer, updateTicketType } from '../controllers/ticket-type.controller.js'
 import { verifySession, requireRole } from '../middlewares/auth.middleware.js'
 import { validateFormData } from '../middlewares/schema.middleware.js'
-import { createTicketTypeSchema, updateTicketTypeSchema } from '../lib/schemaValidation.js'
+import { createTicketTypeSchema, updateTicketTypeSchema } from '../validators/schema-validation.js'
 
 // mergeParams so :eventId from the parent /events/:eventId mount is available here
 const router = Router({ mergeParams: true })

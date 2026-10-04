@@ -1,7 +1,7 @@
 import logger from '../config/logger.js'
-import Event from '../models/event.js'
-import User from '../models/user.js'
-import { EmailService } from '../services/email.service.js'
+import Event from '../models/event.model.js'
+import User from '../models/user.model.js'
+import { EmailService } from '../services/email/email.service.js'
 
 const PICKS_COUNT = 5
 const LOOKAHEAD_DAYS = 14

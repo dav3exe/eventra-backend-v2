@@ -1,4 +1,4 @@
-import { IEvent } from '../models/event.js'
+import { IEvent } from '../models/event.model.js'
 
 export type EventDisplayStatus =
   | 'draft'

@@ -19,9 +19,9 @@ import {
   guestTicketAccessVerifySchema,
   refundRequestSchema,
   rsvpSchema,
-} from '../lib/schemaValidation.js'
+} from '../validators/schema-validation.js'
 import { validateFormData } from '../middlewares/schema.middleware.js'
-import { customRateLimiter } from '../middlewares/rateLimit.middleware.js'
+import { customRateLimiter } from '../middlewares/rate-limit.middleware.js'
 
 const router = Router()
 

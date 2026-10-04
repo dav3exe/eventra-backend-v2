@@ -1,5 +1,5 @@
 import logger from '../config/logger.js'
-import Event from '../models/event.js'
+import Event from '../models/event.model.js'
 
 /**
  * Un-features events whose approved promotion window has ended.

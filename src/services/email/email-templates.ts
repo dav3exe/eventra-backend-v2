@@ -1,4 +1,4 @@
-import { env } from '../config/keys.js'
+import { env } from '../../config/keys.js'
 
 // Brand palette pulled from the actual app (index.css / ticket-card.tsx),
 // not invented for email — #0C5C48 is the same gradient start used on the

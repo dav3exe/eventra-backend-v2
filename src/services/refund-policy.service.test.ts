@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { checkRefundEligibility } from './refundPolicy.js'
+import { checkRefundEligibility } from './refund-policy.service.js'
 
 const DAY_MS = 24 * 60 * 60 * 1000
 const eventStart = new Date('2026-12-25T18:00:00.000Z')

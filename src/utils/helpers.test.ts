@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildPaginationMeta, generateOTP, getDateRangeForWhen, getPagination, sanitizeUser, slugify } from './utils.js'
+import { buildPaginationMeta, generateOTP, getDateRangeForWhen, getPagination, sanitizeUser, slugify } from './helpers.js'
 
 describe('generateOTP', () => {
   it('defaults to a 6-digit numeric code', () => {

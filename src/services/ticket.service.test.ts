@@ -1,15 +1,15 @@
 import mongoose from 'mongoose'
 import { MongoMemoryReplSet } from 'mongodb-memory-server'
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
-import Event from '../models/event.js'
-import Order from '../models/order.js'
-import Ticket from '../models/ticket.js'
-import TicketType from '../models/ticketType.js'
-import User, { IUser } from '../models/user.js'
-import Category from '../models/category.js'
+import Event from '../models/event.model.js'
+import Order from '../models/order.model.js'
+import Ticket from '../models/ticket.model.js'
+import TicketType from '../models/ticket-type.model.js'
+import User, { IUser } from '../models/user.model.js'
+import Category from '../models/category.model.js'
 
 // Ticket confirmation emails hit the network (Brevo) — stub them out for these tests.
-vi.mock('./email.service.js', () => ({
+vi.mock('./email/email.service.js', () => ({
   EmailService: {
     sendTicketConfirmationEmail: vi.fn().mockResolvedValue({ success: true }),
     // notifyOrganizerOfSale only calls this when the organizer has opted

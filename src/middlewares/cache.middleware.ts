@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from 'express'
-import { deleteCache, generateCacheKey, getCache, setCache } from '../lib/cache.js'
+import { deleteCache, generateCacheKey, getCache, setCache } from '../services/cache.service.js'
 
 /**
  * Cache middleware — caches GET responses for the given duration.

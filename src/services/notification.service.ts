@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 import logger from '../config/logger.js'
-import Notification, { NotificationType } from '../models/notification.js'
-import User from '../models/user.js'
-import type { IAdminNotificationPreferences } from '../models/user.js'
+import Notification, { NotificationType } from '../models/notification.model.js'
+import User from '../models/user.model.js'
+import type { IAdminNotificationPreferences } from '../models/user.model.js'
 
 interface CreateNotificationInput {
  recipient: mongoose.Types.ObjectId | string | undefined

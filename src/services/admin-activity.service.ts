@@ -1,4 +1,4 @@
-import AdminActivityLog, { type AdminActivityType } from '../models/adminActivityLog.js'
+import AdminActivityLog, { type AdminActivityType } from '../models/admin-activity-log.model.js'
 import logger from '../config/logger.js'
 import type mongoose from 'mongoose'
 

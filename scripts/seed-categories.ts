@@ -5,8 +5,8 @@
  */
 import mongoose from 'mongoose'
 import { env } from '../src/config/keys.js'
-import Category from '../src/models/category.js'
-import { slugify } from '../src/lib/utils.js'
+import Category from '../src/models/category.model.js'
+import { slugify } from '../src/utils/helpers.js'
 import dns from 'dns'
 
 if (process.env.DNS_SERVERS) {

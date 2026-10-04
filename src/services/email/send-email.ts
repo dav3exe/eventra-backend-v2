@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { env } from '../config/keys.js'
-import logger, { logError } from '../config/logger.js'
+import { env } from '../../config/keys.js'
+import logger, { logError } from '../../config/logger.js'
 
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email'
 

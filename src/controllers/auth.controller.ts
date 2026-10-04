@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 import { env } from '../config/keys.js'
-import { sendTsRestError, sendTsRestSuccess } from '../lib/responseHandler.js'
-import tryCatchWrapper from '../lib/tryCatchWrapper.js'
-import { generateOTP, sanitizeUser } from '../lib/utils.js'
-import User from '../models/user.js'
-import { EmailService } from '../services/email.service.js'
+import { sendTsRestError, sendTsRestSuccess } from '../utils/response-handler.js'
+import tryCatchWrapper from '../utils/try-catch-wrapper.js'
+import { generateOTP, sanitizeUser } from '../utils/helpers.js'
+import User from '../models/user.model.js'
+import { EmailService } from '../services/email/email.service.js'
 import { GoogleAuthService } from '../services/google-auth.service.js'
 
 const OTP_TTL_MS = 15 * 60 * 1000 // 15 minutes, matches the email copy

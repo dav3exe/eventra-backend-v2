@@ -12,11 +12,11 @@
  */
 import mongoose from 'mongoose'
 import { env } from '../src/config/keys.js'
-import Category from '../src/models/category.js'
-import Event from '../src/models/event.js'
-import TicketType from '../src/models/ticketType.js'
-import User from '../src/models/user.js'
-import { slugify } from '../src/lib/utils.js'
+import Category from '../src/models/category.model.js'
+import Event from '../src/models/event.model.js'
+import TicketType from '../src/models/ticket-type.model.js'
+import User from '../src/models/user.model.js'
+import { slugify } from '../src/utils/helpers.js'
 
 const SEED_ORGANIZER_EMAIL = 'seed.organizer@eventra.dev'
 

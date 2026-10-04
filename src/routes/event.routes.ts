@@ -29,8 +29,8 @@ import {
   requestPromotionSchema,
   updateEventLineupSchema,
   updateEventSchema,
-} from '../lib/schemaValidation.js'
-import ticketTypeRoutes from './ticketType.routes.js'
+} from '../validators/schema-validation.js'
+import ticketTypeRoutes from './ticket-type.routes.js'
 
 const router = Router()
 

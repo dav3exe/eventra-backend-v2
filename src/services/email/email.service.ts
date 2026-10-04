@@ -1,4 +1,4 @@
-import sendEmail from '../email/send-email.js'
+import sendEmail from './send-email.js'
 import {
   dailySalesSummaryTemplate,
   eventApprovedTemplate,
@@ -23,9 +23,9 @@ import {
   eventReminderTemplate,
   weeklyPicksTemplate,
   organizerUpdateTemplate,
-} from '../lib/emailTemplates.js'
-import { generateQrCodeBuffer } from '../lib/qrcode.js'
-import EmailQueue from '../models/emailQueue.js'
+} from './email-templates.js'
+import { generateQrCodeBuffer } from '../../utils/qrcode.js'
+import EmailQueue from '../../models/email-queue.model.js'
 
 export interface EmailUser {
   email: string
